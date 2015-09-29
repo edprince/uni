@@ -1,7 +1,8 @@
-Conjunction - P ^ Q is true uf and only if P and Q are both true
-Disjunction: P v Q is true if and only if at least one of P or Q is true
-Logical implication: P => Q is true unless P is true and Q is false
-Bi-implication: P <=> Q is true if and only if P and Q have the same truth value
+#Notes#
+Conjunction - P ^ Q is true uf and only if P and Q are both true  
+Disjunction: P v Q is true if and only if at least one of P or Q is true  
+Logical implication: P => Q is true unless P is true and Q is false  
+Bi-implication: P <=> Q is true if and only if P and Q have the same truth value  
 
 Atomic sentences uses **no** connectives
 Compound sentences are composed with other proposition combined by connectives
