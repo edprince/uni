@@ -1,9 +1,9 @@
 | (P | => | Q) | => | P |
 | --- | --- | --- | --- | --- |
-| t  | t  | t  | t  | t |
-| t  | f  | f  | t  | t |
-| f  | t  | t  | f  | f |
-| f  | t  | f  | f  | f |
+| t | t | t | t | t |
+| t | f | f | t | t |
+| f | t | t | f | f |
+| f | t | f | f | f |
 
 
 | P | v ( | Q | v | R) |
