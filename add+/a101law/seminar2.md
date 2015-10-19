@@ -1,5 +1,5 @@
 #Seminar 2 Questions#
-*The English Legal System*
+*The English Legal System*  
 > An amalgamation of various agencies, processes and institutions.... including the personnel involved in the resolution (formal or informal) of legal disputes
 
 *Seperation of powers*  

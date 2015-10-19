@@ -1,4 +1,4 @@
-#Notation#
+Notation#
 and - ^  
 or - V  
 implies - =>  
@@ -15,3 +15,18 @@ Order of precedence
 ===================
 ~, ^, v, =>, <=>  
 ^, v - have the same precedence  
+
+
+Sets
+====
+
+
+{} = Set  
+
+
+U - Union (OR)  
+n - Intersection (AND)  
+\ - Difference (-)  
+' - Complements (NOT)  
+
+
