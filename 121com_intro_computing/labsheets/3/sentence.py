@@ -1,5 +1,4 @@
 import string
-
 #sentence = open('asoiaf.txt', 'r').read().lower()
 sentence = input("Please enter a sentence: ").lower()
 myList = sentence.split(" ")
