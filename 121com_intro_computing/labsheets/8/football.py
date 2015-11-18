@@ -3,19 +3,22 @@ import urllib.request, json, http.client
 team_url = 'teams'
 fixture_url = 'fixtures'
 token = '3fb170b312d34191a5be1fbf76292f11'
+league_id = 398
 
 def connect(key, url):
     connection = http.client.HTTPConnection('api.football-data.org')
     headers = { 'X-Auth-Token': key, 'X-Response-Control': 'minified' }
-    connection.request('GET', '/alpha/soccerseasons/398/' + url, None, headers )
+    connection.request('GET', '/alpha/soccerseasons/' + str(league_id) + '/' + url, None, headers )
     return json.loads(connection.getresponse().read().decode())
 
 league_data = connect(token, team_url)
 fixtures = connect(token, fixture_url)
 
-print(fixtures)
-
 class Team:
+    """Class to store team data from selected league
+
+    name, abbreviation (strings) and value (int) are stored"""
+
     def __init__(self, name, abbr, value):
         if type(name) != str or type(abbr) != str:
             raise TypeError('The name and abbreviation must be strings')
@@ -26,6 +29,9 @@ class Team:
         self.value = value
 
 class Fixture:
+    """Holds info on league fixtures
+
+    Contains fixture information of every game of the season"""
     def __init__(self, home_team, away_team, home_team_score, away_team_score):
         if type(home_team) != str or type(away_team) != str:
             raise TypeError('The teams were not of the correct type(string)')
@@ -34,7 +40,7 @@ class Fixture:
             raise TypeError('The score must be an integer value')
 
         if home_team_score < -1 or away_team_score < -1:
-            raise ValueError('A team cannot score negative goals')
+            raise ValueError('A team cannot score negative goals (although United could certainly give it a try...)')
 
         self.home_team = home_team
         self.away_team = away_team
@@ -42,7 +48,7 @@ class Fixture:
         self.away_team_score = away_team_score
 
 obj_list = []
-for i in range(len(league_data['teams']) - 1):
+for i in range(len(league_data['teams'])):
     i = Team(
         league_data['teams'][i]['name'],
         league_data['teams'][i]['shortName'],
@@ -51,15 +57,17 @@ for i in range(len(league_data['teams']) - 1):
     obj_list.append(i)
 
 fixture_list = []
-print(fixtures['fixtures'][0]['result']['goalsAwayTeam'])
 for i in range(len(fixtures['fixtures']) - 1):
     if fixtures['fixtures'][i]['status'] == 'FINISHED':
+        #Produces full list of completed fixtures
+        """
         print(
                 fixtures['fixtures'][i]['homeTeamName'] + ' ' + 
                 str(fixtures['fixtures'][i]['result']['goalsHomeTeam']) + ' vs ' +
                 fixtures['fixtures'][i]['awayTeamName'] + ' ' +
                 str(fixtures['fixtures'][i]['result']['goalsAwayTeam'])
                 )
+                """
         i = Fixture(
                 fixtures['fixtures'][i]['homeTeamName'],
                 fixtures['fixtures'][i]['awayTeamName'],
@@ -67,40 +75,78 @@ for i in range(len(fixtures['fixtures']) - 1):
                 fixtures['fixtures'][i]['result']['goalsAwayTeam'])
         fixture_list.append(i)
 
-def createTable( teams, fixtures ):
+def createTable(teams, fixtures):
+    """Produces up to date league table
+
+    Analyses both classes and creates an up to date version of the league table
+    accounting for goal difference, as well as producing a list of clubs sorted
+    by market value for comparison"""
+
     d = {}
-    print(len(teams))
-    for i in range(len(teams) - 1):
+    points_for_win = 2
+    table = []
+    for i in range(len(teams)):
         #set equal to a tuple (points, goal difference)
         d[teams[i].name] = (0, 0)
 
-    print(len(fixtures))
-
-    for i in range(len(fixtures) - 1):
+    for i in range(len(fixtures)):
+    #Manages changes in points and goal difference
         home = fixtures[i].home_team
-
-        for i in range(len(obj_list) - 1):
-            if home == teams[i].name:
-                points, goal_difference = d[teams[i].name]
-
         away = fixtures[i].away_team
-        home_score = fixtures[i].home_team_score
-        away_score = fixtures[i].away_team_score
-        print(home_score)
-        print(away_score)
-        home_goal_difference = home_score - away_score
-        away_goal_difference = away_score - home_score
-        if home_score > away_score:
-            print('Home win')
-            d[home] = (points + 3, goal_difference + home_goal_difference)
-        elif home_score == away_score:
-            print('Draw')
-            d[home] = (points + 1, goal_difference)
-            d[away] = (points + 1, goal_difference)
+        home_goals = fixtures[i].home_team_score
+        away_goals = fixtures[i].away_team_score
+        home_points, home_goal_difference = d[home] 
+        away_points, away_goal_difference = d[away]
+
+        if home_goals > away_goals:
+            tmp_goal_difference = home_goals - away_goals
+            d[home] = (home_points + points_for_win, tmp_goal_difference + home_goal_difference)
+            d[away] = (away_points, away_goal_difference + (tmp_goal_difference
+                * -1))
+        elif home_goals < away_goals:
+            tmp_goal_difference = away_goals - home_goals
+            d[away] = (away_points + points_for_win, away_goal_difference +
+                tmp_goal_difference)
+            d[home] = (home_points, home_goal_difference + (tmp_goal_difference * -1))
         else:
-            #print('Away win')
-            d[away] = (points + 3, goal_difference + away_goal_difference)
+            d[home] = (home_points + 1, home_goal_difference)
+            d[away] = (away_points + 1, away_goal_difference)
+
+    for i in range(len(teams)):
+        #Produce full table
+        name = teams[i].name
+        points, gd = d[teams[i].name]
+        value = teams[i].value
+        table.append((teams[i].name, points, gd, value))
+    
+    #Sort table
+    sorted_table = (sorted(table, key=lambda tup: (tup[1], tup[2])))
+    sorted_table.reverse()
+    value_table = sorted(table, key=lambda tup: (tup[3]))
+    value_table.reverse()
+
+    #Display table
+    print('Team  |  Points  |  Goal Difference  | Value(€) ')
+    for i in range(len(teams)):
+        if i == len(teams) - 3:
+            print('-' * 70)
+        name, points, gd, value = sorted_table[i]
+        #b, c, val1 are not needed, just to prevent unpacking overload
+        name_by_value, b, c, val = value_table[i]
+        remainder_spaces = 25 - len(name)
+        if len(str(gd)) == 2:
+            gd_spaces = 2
+        elif len(str(gd_spaces)) == 1:
+            gd_spaces = 3
+        elif len(str(gd_spaces)) == 3:
+            gd_spaces = 1
+        if len(str(points)) == 1:
+            points_spaces = 2
+        else:
+            points_spaces = 1
+        print(name + (' ' * remainder_spaces) + ' | ' + str(points) + ' ' *
+        points_spaces + '|' + ' ' + str(gd) + ' ' * gd_spaces + '| ' + str(value) + ' | ' + 
+        name_by_value)
     return d
 
-#print(createTable(obj_list, fixture_list))
 createTable(obj_list, fixture_list)
