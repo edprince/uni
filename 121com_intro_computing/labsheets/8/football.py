@@ -3,12 +3,18 @@ import urllib.request, json, http.client
 team_url = 'teams'
 fixture_url = 'fixtures'
 token = '3fb170b312d34191a5be1fbf76292f11'
-league_id = 398
+league_id = input('Which league would you like to see? (398 = Premier league)')
 
 def connect(key, url):
+    """Function to connect to football data api
+
+    Retrieves latest data from football data api and returns it. Accepts an API
+    token and part of the URL to determine which data to return (both
+    strings)"""
+
     connection = http.client.HTTPConnection('api.football-data.org')
     headers = { 'X-Auth-Token': key, 'X-Response-Control': 'minified' }
-    connection.request('GET', '/alpha/soccerseasons/' + str(league_id) + '/' + url, None, headers )
+    connection.request('GET', '/alpha/soccerseasons/' + league_id + '/' + url, None, headers )
     return json.loads(connection.getresponse().read().decode())
 
 league_data = connect(token, team_url)
@@ -18,7 +24,6 @@ class Team:
     """Class to store team data from selected league
 
     name, abbreviation (strings) and value (int) are stored"""
-
     def __init__(self, name, abbr, value):
         if type(name) != str or type(abbr) != str:
             raise TypeError('The name and abbreviation must be strings')
@@ -83,7 +88,7 @@ def createTable(teams, fixtures):
     by market value for comparison"""
 
     d = {}
-    points_for_win = 2
+    points_for_win = 3
     table = []
     for i in range(len(teams)):
         #set equal to a tuple (points, goal difference)
@@ -126,7 +131,7 @@ def createTable(teams, fixtures):
     value_table.reverse()
 
     #Display table
-    print('Team  |  Points  |  Goal Difference  | Value(€) ')
+    print('Team  |  Points  |  Goal Difference  | Value(€) | Teams ordered by value')
     for i in range(len(teams)):
         if i == len(teams) - 3:
             print('-' * 70)
@@ -136,9 +141,9 @@ def createTable(teams, fixtures):
         remainder_spaces = 25 - len(name)
         if len(str(gd)) == 2:
             gd_spaces = 2
-        elif len(str(gd_spaces)) == 1:
+        elif len(str(gd)) == 1:
             gd_spaces = 3
-        elif len(str(gd_spaces)) == 3:
+        elif len(str(gd)) == 3:
             gd_spaces = 1
         if len(str(points)) == 1:
             points_spaces = 2
