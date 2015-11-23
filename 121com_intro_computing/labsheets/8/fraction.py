@@ -10,23 +10,32 @@ class Fraction:
             self.n = n * -1
             self.d = d * -1
 
+
         self.n = n
         self.d = d
 
     def __str__(self):
-        return (str(self.n) + '/' + str(self.d))
+        result = (str(self.n) + '/' + str(self.d))
+        return result
 
     def __add__(self, other):
-        return Fraction(self.n * other.d + other.n * self.d, (self.d * other.d))
+        result = Fraction(self.n * other.d + other.n * self.d, (self.d * other.d))
+        return result
 
     def __sub__(self, other):
-        return Fraction(self.n * other.d - other.n * self.d, self.d * other.d)
+        result = Fraction(self.n * other.d - other.n * self.d, self.d * other.d)
+        return result
 
     def __mul__(self, other):
-        return Fraction(self.n * other.n, self.d * other.d)
+        result = Fraction(self.n * other.n, self.d * other.d)
+        return result
 
     def __truediv__(self, other):
-        return Fraction(self.n * other.d, self.d * other.n)
+        result = Fraction(self.n * other.d, self.d * other.n)
+        if result.n == result.d:
+            return 1
+        else:
+            return result
 
     def __eq__(self, other):
         if (self.n / self.d == other.n / other.d):
@@ -45,9 +54,6 @@ class Fraction:
         recur(self.d, self.n)
         return Fraction(int(self.n), int(self.d))
 
-my_fraction = Fraction(1, 4)
-fraction2 = Fraction(-375, 150 )
-print(fraction2)
-print(my_fraction / fraction2)
-print(my_fraction == fraction2)
-print(Fraction.simplify(fraction2))
+my_fraction = Fraction(1, 2)
+fraction2 = Fraction(1, 4)
+print(Fraction.simplify(fraction2 - my_fraction))

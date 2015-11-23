@@ -132,6 +132,7 @@ def createTable(teams, fixtures):
 
     #Display table
     print('Team  |  Points  |  Goal Difference  | Value(€) | Teams ordered by value')
+    print('-' * 70)
     for i in range(len(teams)):
         if i == len(teams) - 3:
             print('-' * 70)
