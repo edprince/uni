@@ -1,3 +1,10 @@
+---
+title: A101LAW Coursework
+author: Ed Prince
+---
+
+\newpage
+
 #Formal Report on City Link's prosecution under Trade Union and Labour Relations(Consolidation) Act 1992#
 ##Introduction to the case##
 Three ex-directors of the former firm 'City Link' have been prosecuted under the 
@@ -43,5 +50,36 @@ It appeared that the prosecuting lawyer has the right to go first should he
 wish. 
 liabilities. 
 
-#Outcome of the case#
-The three directors were found not guilty
+##Outcome of the case##
+The three directors were found not guilty of the charges against them, the judge
+deciding that they had demonstrated their intent to try and revive the company,
+and therefore their innocence on failing to notify the Secretary of State about
+the forthcoming redundancies that were to follow the collapse of the company.
+
+
+
+\newpage
+
+#Operation of laypersons within the English legal system, and the general operation of Juries#
+##Section 1 - Laypersons##
+###What are laypersons?###
+The English legal system makes use of what are known as 'laypersons'. Laypersons
+are "" <insert laypersons definition>. The legal system makes use of them in
+multiple ways, such as sitting on a jury (read section 2 for more information on
+a jury), or sometimes as expert witnesses. These are laypersons with a
+particular field of expertise, brought in to witness the case to ensure that
+content of the case is accurate and correct with regards to their field.
+
+###When are they used?###
+
+
+##Section 2 - Juries##
+###What is a Jury?###
+<Insert quote on definition of a jury>
+
+###History of juries###
+
+###When are they used?###
+
+
+
