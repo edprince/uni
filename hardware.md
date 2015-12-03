@@ -45,10 +45,10 @@ sensor, indicating that the robot should begin.
 
 ##References##
 Xander Soldaat 2013 *Comparing the NXT and EV3 Bricks* [online] available from
-<botbench.com/blog/2013/01/08/comparing-the-nxt-and-ev3-bricks/> [8 January
+<http://botbench.com/blog/2013/01/08/comparing-the-nxt-and-ev3-bricks> [8 January
 2013]  
 Laurens Valk 2013 *LEGO MINDSTORMS EV3 - A new Generation!* [online] available
-from <robotsquare.com/2013/01/07/lego-mindstorms-ev3-new-generation/> [7 January
+from <http://robotsquare.com/2013/01/07/lego-mindstorms-ev3-new-generation> [7 January
 2013]  
 The LEGO Group 2015 *EV3 Infrared Sensor* [online] available from
 <https://shop.education.lego.com/legoed/en-US/catalog/product.jsp?productId=45509&ProductLine=LEGO-MINDSTORMS-Education-EV3> [2015]
