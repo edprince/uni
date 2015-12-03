@@ -15,7 +15,9 @@ Linux-based operating system (Laurens Valk 2013).
 ##Memory##
 The brick also contains an Micro SD-Card
 Reader, that can handle up to 32GB, along with 16MB of flash memory, and 64MB of
-RAM (Xander Soldaat 2013).
+RAM (Xander Soldaat 2013). This quantity of memory has allowed us to store the
+programs on the brick itself, and use variables within the program, which are
+stored in the bricks memory.
 
 ##Sensors##
 ###Infrared###
@@ -28,13 +30,13 @@ detect the positions of the deposit boxes at the end of the game.
 
 ###Optical Sensor###
 The optical sensor can distinguish 7 different colours, as well as a lack of a
-colour, giving the programmer many options. (Xander Soldaat 2013). We used the sensor multiple times throughout the game, for
-line following purposes, the maze-solving algorithm, to signal when to begin the
-mini-game, finishing the maze and deciding whether or not the deposit location
-is correct for the placing of the object to finish the game. We found that a
-limitation of the sensor was that it sometimes had difficulty registering
-certain colours, in particular green, yellow and white, with which it often
-registered as a different colour. 
+colour, giving the programmer many options. (Xander Soldaat 2013). We used the 
+sensor multiple times throughout the game, for line following purposes, the 
+maze-solving algorithm, to signal when to begin the mini-game, finishing the 
+maze and deciding whether or not the deposit location is correct for the placing 
+of the object to finish the game. We found that a limitation of the sensor was 
+that it sometimes had difficulty registering certain colours, in particular 
+green, yellow and white, with which it often registered as a different colour.
 
 ###Touch Sensor###
 We used the touch sensor for a very simple purpose, which was starting the game.
@@ -50,3 +52,20 @@ from <robotsquare.com/2013/01/07/lego-mindstorms-ev3-new-generation/> [7 January
 2013]  
 The LEGO Group 2015 *EV3 Infrared Sensor* [online] available from
 <https://shop.education.lego.com/legoed/en-US/catalog/product.jsp?productId=45509&ProductLine=LEGO-MINDSTORMS-Education-EV3> [2015]
+
+
+
+#Bluetooth#
+The EV3 brick uses Bluetooth version 2.1+EDR (Xander Soldaat 2013), allowing the
+data transfer to occur at 24Mbit/s, proving to be 2 - 3 times faster than the
+previous version of Bluetooth (Maragret Rouse 2010). The Bluetooth support meant
+that we were capable of connecting an Android-powered mobile device to the
+brick, and send data, using the 'EV3 Mailbox Remote' application. Within our game, we have
+taken advantage of the Bluetooth capabilities twice. The first was to receive an
+answer from a phone (to a mathematical question put to the player). Then the
+robot can delegate a bonus accordingly. The second use is for the user to send a
+message the robot to inform which layout they have decided to use at the end of
+the maze. 
+
+Maragret Rouse 2010 *Bluetooth 2.0+EDR* [online] available from
+<http://whatis.techtarget.com/definition/Bluetooth-20EDR> [2010]

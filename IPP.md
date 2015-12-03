@@ -10,7 +10,6 @@ Revised program implementation
 
 Evaluation and reflection of the LRG development, academic skills, professional
 practices. Technical/practical skills, personal development. (Max 500 words)
-
 #120CT#
 Report on computer components and processing, memory, sensors. Specs on all (Max 500 words)
 
