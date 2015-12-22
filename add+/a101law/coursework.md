@@ -49,7 +49,7 @@ You are all ambassadors for not only the University but also more
 importantly yourselves - individuals within the court could potentially be
 future employers so ensure that you are on your best behaviour. Do not take
 bags and ensure that mobiles and any other telecommunication devices are
-switched completely off - you will be searched by court staff so I would
+witched completely off - you will be searched by court staff so I would
 suggest that metal objects on your person should be reduced to a minimum -
 note there is no safe storage place for bags and you will not be allowed to
 take bags into the court.

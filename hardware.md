@@ -5,17 +5,18 @@ computer, and sync code created in the Mindstorms software. This has a speed of
 480 Mbit/s. It uses USB 2.0 to communicate with a computer, as well as USB 1.1 for
 connecting to other EV3 bricks (daisy chaining) (Xander Soldaat 2013). The brick communicates to
 a large and a medium motor, with 160 - 170 RPM and 240- 250 RPM respectively
-(Xander Soldaat 2013)
+(Xander Soldaat 2013).
 
 ##Processing##
 The main brick makes use of a 300MHz ARM9
 processor. The robot operates on a
-Linux-based operating system (Laurens Valk 2013).
+Linux-based operating system (Laurens Valk 2013). This gives us the processing
+power to run the code for our game.
 
 ##Memory##
 The brick also contains an Micro SD-Card
 Reader, that can handle up to 32GB, along with 16MB of flash memory, and 64MB of
-RAM (Xander Soldaat 2013). This quantity of memory has allowed us to store the
+RAM (Xander Soldaat 2013). This quantity of memory has allowed us to store
 programs on the brick itself, and use variables within the program, which are
 stored in the bricks memory.
 
