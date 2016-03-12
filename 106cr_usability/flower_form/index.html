@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src='https://code.jquery.com/jquery-2.2.1.min.js' type='text/javascript'></script>
+    <script src='app.js' type='text/javascript'></script>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.0/foundation.min.css' type='text/css' rel='stylesheet'>
+    <link href='style.css' type='text/css' rel='stylesheet'>
+    <link href='http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' type='text/css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+
+
+  </head>
+  <body>
+    <div class='outer-wrapper'>
+      <div class='modal important_btn_container'>
+        <i id='close_modal' class='ion-close top_right icon'></i>
+        <h4>Are you sure you wish to make this purchase?</h4>
+        <a href='form.html'><button class='important_btn red'>Confirm</button></a>
+      </div>
+    </div>
+    <h1>Order your flowers</h1>
+    <div class='content'>
+      <div class='form' id='bouquet'>
+        <h2>Build your bouquet</h2>
+        <select>
+          <option selected disabled>Select an image</option>
+          <option class='flower1' value='picture1'></option>
+          <option class='flower2' value='picture2'><img src=''></option>
+          <option class='flower3' value='picture3'><img src=''></option>
+        </select>
+        <select>
+          <option selected disabled>Select a size</option>
+          <option value='size1'>Small</option>
+          <option value='size2'>Medium</option>
+          <option value='size3'>Large</option>
+        </select>
+        <select>
+          <option selected disabled>Select wrapping</option>
+          <option value='size1'>Standard wrapping - FREE</option>
+          <option value='size2'>Gift wrapped - £3.50</option>
+          <option value='size3'>Deluxe gift wrapping - £5.75</option>
+        </select>
+      </div>
+
+      <div class='row form'>
+        <div class='small-12 medium-6 large-6 columns'>
+          <div class='inner_form' id='sender'>
+            <h2>Sender details</h2>
+            <input type='checkbox' id='cp_rec' name='address-duplicate'>
+            <label for='cp_rec' class='chck_box'></label>Copy recipient address
+            <input id='sen_name' class='txt' type='text'  placeholder='Name'>
+            <input id='sen_phone' class='txt' type='text' placeholder='Phone number'>
+            <textarea id='sen_addr' type='textarea' placeholder='Address'></textarea>
+          </div>
+        </div>
+        <div class='small-12 medium-6 large-6 columns'>
+          <div class='inner_form' id='recipient'>
+            <h2>Recipient details</h2>
+            <input id='cp_sen' type='checkbox' name='address-duplicate'>
+            <label for='cp_sen' class='chck_box'></label>Copy sender address
+            <input id='rec_name' class='txt' type='text' placeholder='Name'>
+            <input id='rec_phone' class='txt' type='text' placeholder='Phone number'>
+            <textarea id='rec_addr' type='textarea' placeholder='Address'></textarea>
+            <textarea type='textarea' value='message' placeholder='Message for recipient'></textarea>
+          </div>
+        </div>
+      </div>
+
+
+      <div class='form' id='payment'>
+        <h2>Payment</h2>
+        <fieldset>
+          <input id='credit' type='radio' value='credit' name='pay'>Credit/Debit
+          <input id='paypal' type='radio' value='paypal' name='pay'>PayPal
+        </fieldset>
+        <div class='option1'>
+          <input class='txt' type='text' placeholder='Card number'>
+          <div class='row'>
+            <div class='small-12 medium-6 large-6 columns'>
+              <input class='txt' type='text' placeholder='Sort code'>
+            </div>
+            <div class='small-12 medium-6 large-6 columns'>
+              <input class='txt' type='password' placeholder='Security code'>
+            </div>
+          </div>
+        </div>
+        <div class='option2'>
+          <input class='txt' type='text' placeholder='Paypal username'>
+          <input class='txt' type='password' placeholder='Paypal password'>
+        </div>
+      </div>
+      <div class='form' id='shipping'>
+        <h2>Shipping</h2>
+        <h3>Select delivery option</h3>
+        <input type='radio' name='shipping' value='standard'>Standard delivery
+        <br />
+        <input type='radio' name='shipping' value='first'>First class delivery
+        <br />
+        <input type='radio' name='shipping' value='next'>Next day
+        <br />
+        <input type='checkbox' id='track' name='trac'>
+        <label for='track'></label>Track item
+      </div>
+      <div class='important_btn_container'>
+        <button id='order_btn' class='important_btn'>Place Order</button>
+      </div>
+    </div>
+  </body>
+</html>

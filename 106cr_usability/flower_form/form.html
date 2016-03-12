@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src='https://code.jquery.com/jquery-2.2.1.min.js' type='text/javascript'></script>
+    <script src='app.js' type='text/javascript'></script>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.0/foundation.min.css' type='text/css' rel='stylesheet'>
+    <link href='style.css' type='text/css' rel='stylesheet'>
+    <link href='http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' type='text/css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <div class='outer-wrapper'>
+      <div class='modal important_btn_container'>
+        <i id='close_modal' class='ion-close top_right icon'></i>
+        <h4>Are you sure you wish to make this purchase?</h4>
+        <a href='form.html'><button class='important_btn red'>Confirm</button></a>
+      </div>
+    </div>
+    <h1>Thank You for you Purchase</h1>
+    <div class='content'>
+      <div class='form' id='bouquet'>
+        <h2>How did you find out about us?</h2>
+        <input type='checkbox' id='word' name='find'>
+        <label for'word' class='chck_box'></label>Word of mouth
+        <br />
+        <input type='checkbox' id='int' name='find'>
+        <label for'int'></label>Internet advert
+        <br />
+        <input type='checkbox' id='mag' name='find'>
+        <label for'mag'></label>Magazine advert
+        <br />
+        <input type='checkbox' id='bill' name='find'>
+        <label for'bill'></label>Billboard
+        <br />
+        <input type='checkbox' id='other' name='find'>
+        <label for'other'></label>Other
+        <textarea id='other-reveal' placeholder='Please enter how you found out about us'></textarea>
+      </div>
+
+      <div class='form' id='rate'>
+        <h2>Rate your experience</h2>
+        <fieldset>
+          <input id='rate1' type='radio' name='pay'>1
+          <input id='rate2' type='radio' name='pay'>2
+          <input id='rate3' type='radio' name='pay'>3
+          <input id='rate4' type='radio' name='pay'>4
+          <input id='rate5' type='radio' name='pay'>5
+        </fieldset>
+      </div>
+
+      <div class='important_btn_container'>
+        <button class='important_btn'>Return to site</button>
+      </div>
+    </div>
+  </body>
+</html>
