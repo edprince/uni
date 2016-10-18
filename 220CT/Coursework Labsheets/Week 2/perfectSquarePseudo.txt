@@ -1,0 +1,7 @@
+Input userNumber
+squareRoot <- userNumber / userNumber
+if squareRoot is whole number
+    print userNumber
+else
+    roundedNumber = round up squareRoot
+    print squareRoot * squareRoot
