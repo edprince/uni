@@ -1,8 +1,12 @@
 def findNearestSquare(x):
+    '''Function to find the nearest perfect square less than or equal to input
+
+    Accepts any numerical input'''
+    #Find square root (rounded down if necessary)
     x = int(x**0.5)
+    #Multiply by itself to get nearest whole square
     return x * x
 
-#print(findNearestSquare(int(input('Input a number: '))))
 
 def unitTest():
     proposals = [10, 20, 50, 55, 100000, 99, 4]

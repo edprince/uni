@@ -1,5 +1,4 @@
-# Are people like Julian Assange or Edward Snowden traitors or heroes of the
-information age? 
+# Are people like Julian Assange or Edward Snowden traitors or heroes of the information age? 
 
 Moral considerations are the most straight forward to analyse, and so
 they shall form the opening of this piece, on the behaviour of high-profile information dealers
