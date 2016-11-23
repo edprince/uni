@@ -1,4 +1,0 @@
-1. The user can define the inputs
-2. Yes, Python has a built in feature that terminates the program if it iterates too many times.
-3. It is fully commented with function doc strings and additional explanational comments
-4. 
