@@ -11,7 +11,7 @@ def add(m1, m2):
     '''Matrix addition function
 
     Accepts two matrix's in the form of embedded lists providing they are of the
-    same dimensions and performs an addition of them'''
+    same dimensions and performs an addition of them. Efficiency O(N^2)'''
     if (checkLength(m1,m2)):
         return "Matrix's must be of the same length."
     result = m1

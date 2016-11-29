@@ -1,7 +1,7 @@
 def findNearestSquare(x):
     '''Function to find the nearest perfect square less than or equal to input
 
-    Accepts any numerical input'''
+    Accepts any numerical input. Efficiency O(1)'''
     #Find square root (rounded down if necessary)
     x = int(x**0.5)
     #Multiply by itself to get nearest whole square
@@ -17,4 +17,6 @@ def unitTest():
             print('Correct')
         else:
             print('Failed')
+
+unitTest()
 

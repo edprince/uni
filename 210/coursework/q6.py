@@ -12,6 +12,5 @@ def reverseOrder(userString):
             newString += ' ' + reversedList[x]
     return newString
 
-print(reverseOrder(
-input('Please enter your string: ')
-))
+myString = raw_input('enter something: ')
+print(reverseOrder(myString))
