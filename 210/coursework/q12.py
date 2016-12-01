@@ -7,11 +7,6 @@ class BinTreeNode(object):
         self.left=None
         self.right=None
 
-    def tree_delete( tree, item):
-
-
-
-
     def tree_insert( tree, item):
     if tree==None:
         tree=BinTreeNode(item)
@@ -34,6 +29,9 @@ class BinTreeNode(object):
         if(tree.right!=None):
             postorder(tree.right)
         print tree.value
+
+    def treesort(tree):
+
 
 
     def in_order(tree):

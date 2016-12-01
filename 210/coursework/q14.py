@@ -5,8 +5,8 @@ class Graph:
     Allows addition of nodes/edges to the graph. Stores in a
     dictionary using the adjacency list approach'''
 
-    def __init__(self):
-        self.adjacencyList = {}
+    def __init__(self, adjacencyList = {}):
+        self.adjacencyList = adjacencyList
 
     def add_edge(self, start, to):
         self.adjacencyList[start].append(to)
@@ -27,28 +27,44 @@ class Graph:
         '''Searches the graph breadth first looking for the shortest path to a node
 
         Accepts any value as an argument to attempt to search for'''
-        visited = []
-        found = False
-        if target not in self.adjacencyList:
-            print('Target does not exist')
-        else:
-            visited.append(self.adjacencyList[start])
-            while visited:
-                path = visited.pop(0)
-                node = path[-1]
+        queue = self.adjacencyList[start]
+        path = [start]
+        visited = set([start])
+
+        while (len(queue) > 0):
+            node = queue.pop(0)
+            edges = self.adjacencyList[node]
+
+            if node in visited:
+                continue
+            visited.add(node)
+
+            if (node == target):
+                return path
+            else:
+                path.append(node)
+                queue.extend(edges)
 
     def dfs(self, start, target):
         '''Searches the graph depth first looking for the shortest path to a node
 
         Accepts any value as an argument to attempt to search for'''
-        visited = set()
-        stack = [target]
-        while stack:
-            node = stack.pop()
-            if node not in visited:
-                visited.add(node)
-                stack.extend(set(self.adjacencyList[node]) - visited)
-        return visited
+        queue = self.adjacencyList[start]
+        path = [start]
+        visited = set([start])
+
+        while (len(queue) > 0):
+            node = queue.pop() 
+            edges = self.adjacencyList[node] 
+            if node in visited:
+                continue
+            visited.add(node)
+
+            if (node == target):
+                return path
+            else:
+                path.append(node)
+                queue.extend(edges)
 
 class Node:
     def __init__(self, value):
@@ -56,18 +72,15 @@ class Node:
         self.value = value
 
 if __name__ == '__main__':
-    g = Graph()
-    g.add_vertex(0) 
-    g.add_vertex(1)
-    g.add_vertex(2)
-    g.add_vertex(3)
-    g.add_vertex(4)
-    g.add_vertex(8)
-    g.add_edge(0,1)
-    g.add_edge(1,2)
-    g.add_edge(2,3)
-    g.add_edge(3,4)
-    g.add_edge(4,8)
+    g = Graph(
+            {
+                0: [1,3],
+                1: [0,2],
+                2: [1,3],
+                3: [0,2]
+                }
+    )
     g.display_nodes()
 
-    print(g.dfs(0, 8))
+    print(g.dfs(0, 3))
+    print(g.bfs(0,3))
