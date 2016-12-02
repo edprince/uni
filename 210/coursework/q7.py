@@ -1,26 +1,23 @@
-def checkPrime(n):
-    print(n)
-    if n <= 1:
-        return False
-    else: 
-        if (n // checkPrime(n - 1)) == 0:
-            print('Not prime')
-        else:
-            print('Prime')
+'''PSEUDOCODE
+INPUT userNumber
 
+FUNCTION checkPrime(userNumber:INT, start:INT) DO
+  start=2 by default
+  IF userNumber EQUALS 2 OR counter EXCEEDS userNumber THEN
+    userNumber NOT PRIME
+  IF userNumber GREATER THAN counter THEN
+    checkPrime(userNumber, counter + 1)
+'''
+def checkPrime(userNumber, counter=2):
+    if (userNumber % counter == 0 or userNumber > counter):
+        return 'User number is not prime'
+    if (userNumber > counter):
+        return checkPrime(userNumber, counter + 1)
+    return 'User number is prime'
 
-def prime(n):
-    if n == 0:
-        answer = 0
-    if n == 1:
-        answer = 1
-    else:
-        val = n // prime(n - 1)
-        if val == 0:
-            answer = False
-        else:
-            answer = True
-    return answer
-
-print(prime(13))
-
+number = raw_input('Please enter a number to check (q for list): ')
+if number == 'q': 
+    for i in range(100):
+        print(i, checkPrime(i))
+else:
+    print(int(number), ' - ', checkPrime(int(number)))
