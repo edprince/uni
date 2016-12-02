@@ -8,8 +8,8 @@ class Graph:
     def __init__(self, adjacencyList = {}):
         self.adjacencyList = adjacencyList
 
-    def add_edge(self, start, to):
-        self.adjacencyList[start].append(to)
+    def add_edge(self, start, to, weight):
+        self.adjacencyList[start][to] = weight
          
     def add_vertex(self, value):
         '''Adds a new vertex to the graph.
@@ -17,54 +17,14 @@ class Graph:
         Accepts any value as an argument, and makes a node with that
         label'''
         new_node = Node(value)
-        self.adjacencyList[value] = []
+        self.adjacencyList[value] = {}
 
     def display_nodes(self):
         '''Displays adjacency list of the graph.'''
         print(self.adjacencyList)
 
-    def bfs(self, start, target):
-        '''Searches the graph breadth first looking for the shortest path to a node
-
-        Accepts any value as an argument to attempt to search for'''
-        queue = self.adjacencyList[start]
-        path = [start]
-        visited = set([start])
-
-        while (len(queue) > 0):
-            node = queue.pop(0)
-            edges = self.adjacencyList[node]
-
-            if node in visited:
-                continue
-            visited.add(node)
-
-            if (node == target):
-                return path
-            else:
-                path.append(node)
-                queue.extend(edges)
-
-    def dfs(self, start, target):
-        '''Searches the graph depth first looking for the shortest path to a node
-
-        Accepts any value as an argument to attempt to search for'''
-        queue = self.adjacencyList[start]
-        path = [start]
-        visited = set([start])
-
-        while (len(queue) > 0):
-            node = queue.pop() 
-            edges = self.adjacencyList[node] 
-            if node in visited:
-                continue
-            visited.add(node)
-
-            if (node == target):
-                return path
-            else:
-                path.append(node)
-                queue.extend(edges)
+    def dijkstra():
+        '''Function finds the cheapest path from a given node to a target'''
 
 class Node:
     def __init__(self, value):
@@ -72,15 +32,13 @@ class Node:
         self.value = value
 
 if __name__ == '__main__':
-    g = Graph(
-            {
-                'A': [{'B':3}, {}],
-                'B': [0,2],
-                'C': [1,3],
-                'D': [0,2]
-                }
-    )
-    g.display_nodes()
+    g = Graph({
+        'A': {'B': 4, 'C': 2},
+        'B': {'A': 2, 'C': 8},
+        'C': {'A': 6, 'D': 1},
+        'D': {'B': 3, 'C': 1}
+        })
 
+    g.display_nodes()
     print(g.dfs(0, 3))
     print(g.bfs(0,3))

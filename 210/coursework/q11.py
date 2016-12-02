@@ -9,12 +9,24 @@ class Node(object):
             self.head = None
             self.tail = None
 
-        def delete(self, n, x):
+        def delete(self, node):
+            if node.prev == None:
+                self.head = node.next
+            elif node.next == None:
+                self.tail = node.prev
+            else:
+                node.prev.next = node.next
+                node.next.prev = node.prev
             
-
         def insert(self,n,x):
             #Not actually perfect: how do we prepend to an existing list?
             if n != None:
+                if n == self.head:
+                    #We're prepending
+                    x.next = self.head
+                    self.head.prev = x
+                    self.head = x
+
                 x.next = n.next
                 n.next = x
                 x.prev = n
@@ -40,3 +52,4 @@ class Node(object):
         l.insert(l.head,Node(6))
         l.insert(l.head,Node(8))
         l.display()
+        l.delete(Node(6))
