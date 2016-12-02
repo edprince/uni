@@ -1,3 +1,27 @@
+'''PSEUDOCODE
+CREATE graph CLASS
+CREATE adjacencyList UPON graph INITIATION
+
+FUNCTION addVertex(value:char) DO
+  CREATE key IN adjacecyList of parameter 
+
+FUNCTION addEdge(from:char to:char) DO
+  IF parameter1 vertex DOES NOT EXIST THEN
+      addVertex(parameter1)
+  ELIF parameter2 vertex DOES NOT EXIST THEN
+      addVertex(parameter2)
+  ELSE
+      adjacencyList[from].append(to)
+
+
+#Structure
+graph = {
+    'A': [1,2,3],
+    'B': [4,5,6],
+    'C': [7,8,9]
+    }
+  
+'''
 #Solution must be OOP
 class Graph:
     '''Graph class contains methods to manipulate and store graph

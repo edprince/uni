@@ -1,3 +1,17 @@
+'''PSEUDOCODE
+
+GET number:integer
+sqrt -> number^0.5 (finding square root)
+IF sqrt -> decimal THEN
+    result -> ROUNDED_DOWN sqrt
+answer -> result * result
+
+'''
+
+
+
+
+
 def findNearestSquare(x):
     '''Function to find the nearest perfect square less than or equal to input
 

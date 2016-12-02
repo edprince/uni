@@ -1,3 +1,9 @@
+'''PSEUDOCODE
+INPUT some_string
+SPLIT some_string INTO list_of_words
+REVERSE list_of_words
+CONCATENATE list_of_words INTO STRING
+'''
 def reverseOrder(userString):
     '''Function to reverse the order of words in a string
 

@@ -1,3 +1,16 @@
+'''PSEUDOCODE
+check midpoint of list
+IF midpoint is WITHIN bounds THEN
+    return TRUE
+ELIF FIRST == LAST
+    return FALSE
+ELSE
+    IF midpoint IS GREATER THAN upper_bound THEN
+        TAKE BOTTOM HALF OF LIST
+    ELSE
+        TAKE TOP HALF OF LIST
+    REPEAT FROM BEGINNING
+'''
 import math
 
 def binarySearch(myList, lower_bound, upper_bound):
