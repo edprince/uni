@@ -9,11 +9,12 @@ FUNCTION checkPrime(userNumber:INT, start:INT) DO
     checkPrime(userNumber, counter + 1)
 '''
 def checkPrime(userNumber, counter=2):
-    if (userNumber % counter == 0 or userNumber > counter):
+    if (counter == userNumber):
+        return 'User number is prime'
+    if (userNumber % counter == 0):
         return 'User number is not prime'
-    if (userNumber > counter):
+    else:
         return checkPrime(userNumber, counter + 1)
-    return 'User number is prime'
 
 number = raw_input('Please enter a number to check (q for list): ')
 if number == 'q': 
